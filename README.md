@@ -20,6 +20,9 @@ The `static.json` file is required to use this buildpack. This file handles all 
 ### Configuration
 You can configure different options for your static application by writing a `static.json` in the root folder of your application.
 
+The environment variable `ALLOW_ROBOTS=true` decides what robots.txt should return.
+
+
 #### Root
 This allows you to specify a different asset root for the directory of your application. For instance, if you're using ember-cli, it naturally builds a `dist/` directory, so you might want to use that intsead.
 
@@ -128,6 +131,19 @@ With custom redirects, you can move pages to new routes but still preserve the o
   }
 }
 ```
+
+##### Prerender bot proxying
+Bots (ie. user-agent matching a bot) can have their requests proxied to a Prerender.io server so that the frontend is rendered server side.
+
+```json
+{
+  "prerender": {
+    "token": "SECRET!",
+    "server": "prerender-server.cloud.com"
+  }
+}
+```
+
 
 ##### Interpolating Env Var Values
 It's common to want to be able to test the frontend against various backends. The `url` key supports environment variable substitution using `${ENV_VAR_NAME}`. For instance, if there was a staging and production Heroku app for your API, you could setup the config above like the following:
