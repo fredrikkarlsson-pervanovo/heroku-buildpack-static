@@ -76,7 +76,7 @@ http {
     }
   <% end %>
 
-    location /robots.txt {
+    location = /robots.txt {
       mruby_content_handler_code 'Nginx.echo "User-agent: *\nDisallow: " + (ENV["ALLOW_ROBOTS"] == "true" ? "" : "/")';
     }
 
