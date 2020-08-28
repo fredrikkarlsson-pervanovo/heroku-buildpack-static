@@ -1,5 +1,6 @@
 daemon off;
 worker_processes auto;
+env ALLOW_ROBOTS;
 
 events {
   use epoll;
@@ -74,6 +75,10 @@ http {
       set $prerender 0;
     }
   <% end %>
+
+    location /robots.txt {
+      mruby_content_handler_code 'Nginx.echo "User-agent: *\nDisallow: " + (ENV["ALLOW_ROBOTS"] == "true" ? "" : "/")';
+    }
 
     location / {
       mruby_set $fallback /app/bin/config/lib/ngx_mruby/routes_fallback.rb cache;
