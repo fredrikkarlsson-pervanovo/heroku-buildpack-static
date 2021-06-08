@@ -66,6 +66,7 @@ class NginxConfig
     json["error_page"] ||= nil
     json["debug"] = ENV['STATIC_DEBUG']
     json["prerender"] ||= nil
+    json["client_max_body_size"] ||= nil
 
     logging = json["logging"] || {}
     json["logging"] = DEFAULT[:logging].merge(logging)

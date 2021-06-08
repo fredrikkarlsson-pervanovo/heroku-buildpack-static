@@ -229,6 +229,15 @@ Then using the [config vars](https://devcenter.heroku.com/articles/config-vars),
 $ heroku config:set API_APP_NAME="hone-ember-todo-rails"
 ```
 
+#### Limit file upload size
+Set nginx `client_max_body_size` directive (to avoid `413 Request Entity Too Large`) like this:
+
+```json
+{
+  "client_max_body_size": "100M"
+}
+```
+
 #### Custom Headers
 Using the headers key, you can set custom response headers. It uses the same operators for pathing as [Custom Routes](#custom-routes).
 
