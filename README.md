@@ -24,7 +24,7 @@ The environment variable `ALLOW_ROBOTS=true` decides what robots.txt should retu
 
 
 #### Root
-This allows you to specify a different asset root for the directory of your application. For instance, if you're using ember-cli, it naturally builds a `dist/` directory, so you might want to use that intsead.
+This allows you to specify a different asset root for the directory of your application. For instance, if you're using ember-cli, it naturally builds a `dist/` directory, so you might want to use that instead.
 
 ```json
 {
